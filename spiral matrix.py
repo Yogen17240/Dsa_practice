@@ -1,33 +1,33 @@
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        if not matrix:
-            return []
-        m = len(matrix)
-        n = len(matrix[0])
-        ans = []
-        r_first = 0
-        r_last = 0
-        c_first = m - 1
-        c_last = n - 1
-        while len(ans) < m * n:
-            j = c_first
-            while j <= c_last and len(ans) < m * n:
-                ans.append(matrix[r_first][j])
-                j += 1
-            i = r_first + 1  
-            while i <= r_last - 1 and len(ans) < m * n:
-                ans.append(matrix[i][c_last])
-                i += 1
-            j = c_last
-            while j >= c_first and len(ans) < m * n:
-                ans.append(matrix[r_last][j])
-                j -= 1
-            i = r_last - 1
-            while i >= r_first + 1 and len(ans) < m * n:
-                ans.append(matrix[i][c_first])
-                i -= 1
-            r_first += 1
-            c_first += 1
-            r_last -= 1
-            c_last -= 1
-        return ans   
+  def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
+    if not matrix:
+      return []
+    m = len(matrix)
+    n = len(matrix[0])
+    ans = []
+    r1 = 0
+    c1 = 0
+    r2 = m - 1
+    c2 = n - 1
+    while len(ans) < m * n:
+      j = c1
+      while j <= c2 and len(ans) < m * n:
+        ans.append(matrix[r1][j])
+        j += 1
+      i = r1 + 1
+      while i <= r2 - 1 and len(ans) < m * n:
+        ans.append(matrix[i][c2])
+        i += 1
+      j = c2
+      while j >= c1 and len(ans) < m * n:
+        ans.append(matrix[r2][j])
+        j -= 1
+      i = r2 - 1
+      while i >= r1 + 1 and len(ans) < m * n:
+        ans.append(matrix[i][c1])
+        i -= 1
+      r1 += 1
+      c1 += 1
+      r2 -= 1
+      c2 -= 1
+    return ans
